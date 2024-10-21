@@ -3,9 +3,9 @@ const blokNum = document.querySelectorAll('.block-number');
 
 document.body.addEventListener('click', (e) => {
 
-    const my_arr = Array.from(bloks);
+    const myArr = Array.from(bloks);
 
-    my_arr.forEach((blokItem, index) => {
+    myArr.forEach((blokItem, index) => {
 
         if (e.target.closest('.block') === blokItem) {
 
@@ -14,17 +14,17 @@ document.body.addEventListener('click', (e) => {
                 blokNum[index].textContent = blokNum[index - 5].textContent;
                 blokNum[index - 5].textContent = temp;
             };
-            if ((e.target.closest('.bottom')) && (index < my_arr.length - 5)) {
+            if ((e.target.closest('.bottom')) && (index < myArr.length - 5)) {
                 let temp = blokNum[index].textContent;
                 blokNum[index].textContent = blokNum[index + 5].textContent;
                 blokNum[index + 5].textContent = temp;
             };
-            if ((e.target.closest('.right')) && ((index + 1) % 5 !== 0)) {
+            if (e.target.closest('.right'))  {
                 let temp = blokNum[index].textContent;
                 blokNum[index].textContent = blokNum[index + 1].textContent;
                 blokNum[index + 1].textContent = temp;
-            };
-            if ((e.target.closest('.left')) && (index % 5 !== 0)) {
+            }; 
+            if (e.target.closest('.left')) {
                 let temp = blokNum[index].textContent;
                 blokNum[index].textContent = blokNum[index - 1].textContent;
                 blokNum[index - 1].textContent = temp;
@@ -33,7 +33,7 @@ document.body.addEventListener('click', (e) => {
     })
 
     if (e.target.classList.contains('btn-reset')) {
-        for (let i=0; i<my_arr.length; i++) {
+        for (let i=0; i<myArr.length; i++) {
             blokNum[i].textContent = i + 1;
         }
     }
