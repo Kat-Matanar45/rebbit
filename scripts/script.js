@@ -19,16 +19,20 @@ document.body.addEventListener('click', (e) => {
                 blokNum[index].textContent = blokNum[index + 5].textContent;
                 blokNum[index + 5].textContent = temp;
             };
-            if (e.target.closest('.right'))  {
+            if (e.target.closest('.right')) {
                 let temp = blokNum[index].textContent;
+                if (temp === '25') {return}
+                else {
                 blokNum[index].textContent = blokNum[index + 1].textContent;
                 blokNum[index + 1].textContent = temp;
-            }; 
+            }}; 
             if (e.target.closest('.left')) {
                 let temp = blokNum[index].textContent;
+                if (temp === '1') {return}
+                else {
                 blokNum[index].textContent = blokNum[index - 1].textContent;
                 blokNum[index - 1].textContent = temp;
-            };
+            }};
         }
     })
 
